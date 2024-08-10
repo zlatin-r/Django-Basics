@@ -133,7 +133,6 @@ header nav ul {
 }
 
 .training {
-    /*position: relative;*/
     margin: 20px;
     box-shadow: 0 1px 5px 0 #00000033;
     border-radius: 12px;
@@ -152,13 +151,13 @@ header nav ul {
 
 .training header {
     position: relative;
-    /*border-top-left-radius: 12px;*/
-    /*border-top-right-radius: 12px;*/
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 }
 
 .training header h3 {
     text-align: center;
-    padding: 60px 30px;
+    padding: 80px 30px;
     font-size: 21px;
 }
 
@@ -169,11 +168,11 @@ header nav ul {
     color: white;
     padding: 8px 12px;
     position: absolute;
-    top: 0;
+    top: 10px;
     left: 10px;
-    font-size: 12px;
 }
 
 .training:nth-child(3) header span {
     background-color: #9A5DC6;
 }
+
