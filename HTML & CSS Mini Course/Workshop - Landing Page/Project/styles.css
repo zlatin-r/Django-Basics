@@ -133,6 +133,7 @@ header nav ul {
 }
 
 .training {
+    /*position: relative;*/
     margin: 20px;
     box-shadow: 0 1px 5px 0 #00000033;
     border-radius: 12px;
@@ -151,6 +152,8 @@ header nav ul {
 
 .training header {
     position: relative;
+    /*border-top-left-radius: 12px;*/
+    /*border-top-right-radius: 12px;*/
 }
 
 .training header h3 {
