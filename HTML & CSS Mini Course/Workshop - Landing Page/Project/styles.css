@@ -134,7 +134,7 @@ header nav ul {
 
 .training {
     margin: 20px;
-    box-shadow: 0 1px 5px 0 #00000033;
+    box-shadow: 0 2px 4px 0 #00000024;
     border-radius: 12px;
 }
 
@@ -150,15 +150,18 @@ header nav ul {
 }
 
 .training header {
+    height: 150px; /* Fixed height for the header */
     position: relative;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
+    color: white;
 }
 
 .training header h3 {
     text-align: center;
-    padding: 80px 30px;
+    padding: 60px 30px;
     font-size: 21px;
+    margin: 0;
 }
 
 .training header span {
@@ -170,9 +173,129 @@ header nav ul {
     position: absolute;
     top: 10px;
     left: 10px;
+    font-size: 12px
 }
 
 .training:nth-child(3) header span {
     background-color: #9A5DC6;
 }
 
+.training-content {
+    padding: 20px;
+}
+
+.training-content {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to a new line */
+    align-items: center; /* Align items vertically centered */
+    justify-content: center; /* Center items horizontally */
+    text-align: center;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.training-content-info {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between items */
+    flex-wrap: wrap; /* Ensure items wrap to new line when needed */
+    justify-content: center;
+    margin: 8px;
+}
+
+.training-content::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #F1E6E6FF;
+    width: 100%;
+}
+
+
+.training footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px 10px 20px;
+}
+
+.training-price {
+    font-size: 24px;
+    color: #bd3030;
+}
+
+.training-cta .btn {
+    font-weight: bold;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.dots-line-container {
+    padding: 0 40px;
+}
+
+.program {
+    border-radius: 12px;
+    margin: 10px;
+}
+
+.programs-content {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.program.software {
+    border: 3px solid #44A9F8;
+    background: #E3F3FD;
+}
+
+.program.hardware {
+    border: 3px solid #00AF9B;
+    background: #DFF4F1;
+}
+
+.program header {
+    display: flex;
+    align-items: center;
+    box-shadow: none;
+}
+
+.program.software h4 {
+    font-size: 30px;
+    color: #44A9F8;
+}
+
+.program.hardware h4 {
+    font-size: 30px;
+    color: #00AF9B;
+}
+
+.program-header {
+    display: flex; !important;
+    text-align: center;
+    box-shadow: none;
+    justify-content: center;
+}
+
+.programs header {
+    display: block;
+    text-align: center;
+}
+
+.program-header h3 {
+    padding: 20px 30px;
+    font-size: 21px;
+}
+
+.programs header h2 {
+    font-size: 30px;
+    color: #00AF9B;
+}
+
+.programs.btn {
+    padding: 10px 10px 10px 0;
+}
