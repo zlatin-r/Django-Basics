@@ -94,7 +94,7 @@ header nav ul {
 }
 
 .filters label input {
-    border: 1px solid #FF9100;|
+    border: 1px solid #FF9100;
     border-radius: 4px;
     padding: 12px;
     background-color: transparent;
@@ -112,7 +112,7 @@ header nav ul {
 }
 
 .filters label::after {
-    content:"";
+    content: "";
     display: block;
     clear: both;
     background-image: url(images/input-arrow.png);
@@ -123,4 +123,54 @@ header nav ul {
     position: absolute;
     top: 11px;
     right: 7px;
+}
+
+.trainings {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+}
+
+.training {
+    margin: 20px;
+    box-shadow: 0 1px 5px 0 #00000033;
+    border-radius: 12px;
+}
+
+.training:nth-child(1) header,
+.training:nth-child(3) header {
+    background-color: #44A9F8;
+    color: white;
+}
+
+.training:nth-child(2) header {
+    background-color: #FF9100;
+    color: white;
+}
+
+.training header {
+    position: relative;
+}
+
+.training header h3 {
+    text-align: center;
+    padding: 60px 30px;
+    font-size: 21px;
+}
+
+.training header span {
+    background-color: #676781;
+    border-radius: 6px;
+    text-transform: uppercase;
+    color: white;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 12px;
+}
+
+.training:nth-child(3) header span {
+    background-color: #9A5DC6;
 }
