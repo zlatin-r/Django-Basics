@@ -258,12 +258,6 @@ header nav ul {
     background: #DFF4F1;
 }
 
-.program header {
-    display: flex;
-    align-items: center;
-    box-shadow: none;
-}
-
 .program.software h4 {
     font-size: 30px;
     color: #44A9F8;
@@ -281,10 +275,10 @@ header nav ul {
     justify-content: center;
 }
 
-.programs header {
-    display: block;
-    text-align: center;
-}
+/*.programs-header {*/
+/*    display: block;*/
+/*    text-align: center;*/
+/*}*/
 
 .program-header h3 {
     padding: 20px 30px;
