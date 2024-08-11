@@ -11,7 +11,7 @@ body, ul {
     font-family: 'Lato', sans-serif;
 }
 
-header {
+.site-header {
     box-shadow: 0 3px 8px -4px #ccc;
     padding: 20px 40px;
     display: flex;
@@ -244,8 +244,9 @@ header nav ul {
 
 .programs-content {
     display: flex;
-    align-items: center;
     text-align: center;
+
+
 }
 
 .program.software {
@@ -268,17 +269,22 @@ header nav ul {
     color: #00AF9B;
 }
 
-.program-header {
-    display: flex; !important;
-    text-align: center;
+.programs > header {
+    display: flex;
+    flex-direction: column; /* Align items in a column */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    text-align: center; /* Center text */
     box-shadow: none;
-    justify-content: center;
+    padding: 20px 0; /* Optional: Add some padding for spacing */
 }
 
-/*.programs-header {*/
-/*    display: block;*/
-/*    text-align: center;*/
-/*}*/
+.program-header {
+    display: flex;
+    align-items: center; /* Aligns items vertically centered */
+    justify-content: center; /* Centers items horizontally */
+    gap: 10px; /* Space between the icon and the text */
+}
 
 .program-header h3 {
     padding: 20px 30px;
@@ -288,8 +294,9 @@ header nav ul {
 .programs header h2 {
     font-size: 30px;
     color: #00AF9B;
+
 }
 
 .programs.btn {
-    padding: 10px 10px 10px 0;
+
 }
