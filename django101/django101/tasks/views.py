@@ -38,7 +38,7 @@ from django101.tasks.models import Task
 #     return HttpResponse(content)
 
 def index(request):
-    title_filter = request.GET.get('filter', None)
+    title_filter = request.GET.get("title_filter", "")
 
     tasks = Task.objects.all()
 
@@ -49,6 +49,7 @@ def index(request):
         "title": "The tasks app!!!",
         "task_list": tasks,
         "tasks_count": tasks.count(),
+        "title_filter": title_filter,
     }
 
     return render(request, 'tasks/index.html', context)
