@@ -2,6 +2,7 @@ import http
 
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.template.defaultfilters import title
 
 from django101.tasks.models import Task
 
@@ -9,7 +10,12 @@ from django101.tasks.models import Task
 # Create your views here.
 
 def index(request):
+    title_filter = request.GET.get('filter', '')
+
     tasks = Task.objects.all()
+
+    if title_filter:
+        tasks = tasks.filter(title__icontains=title_filter.lower())
 
     result = []
 
