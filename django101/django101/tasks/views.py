@@ -35,4 +35,5 @@ def index(request):
         <h1>{len(tasks)} Tasks</h1>
         {ul}"""
 
-    return HttpResponse(content)
+    # return HttpResponse(content)
+    return render(request, 'tasks/index.html')
