@@ -1,4 +1,5 @@
 import http
+import time
 
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -38,6 +39,8 @@ from django101.tasks.models import Task
 #     return HttpResponse(content)
 
 def index(request):
+    # time.sleep(2.5)
+    print("In the view")
     title_filter = request.GET.get("title_filter", "")
 
     tasks = Task.objects.all()
