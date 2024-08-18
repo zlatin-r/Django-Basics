@@ -4,12 +4,12 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 
-def index(request):
-    return HttpResponse(f"Response from {time.time()}")
-
-
-def index2(request, *args, **kwargs):
-    return HttpResponse(f"Response with  {args} and {kwargs}")
+# def index(request):
+#     return HttpResponse(f"Response from {time.time()}")
+#
+#
+# def index2(request, *args, **kwargs):
+#     return HttpResponse(f"Response with  {args} and {kwargs}")
 
 
 def department_1_details(request):
@@ -26,3 +26,6 @@ def department_details(request, pk):
 
 def department_details_by_name(request, name):
     return HttpResponse(f"Department with name: {name}")
+
+
+
