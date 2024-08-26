@@ -13,3 +13,10 @@ def index(request):
     }
 
     return render(request, "web/index.html", context)
+
+
+def create_person(request):
+    form = PersonForm(request.POST, user=request.user)
+
+    if form.is_valid():
+        form.save()

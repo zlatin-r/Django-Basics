@@ -1,6 +1,7 @@
 from dataclasses import fields
 
 from django import forms
+from django.contrib.auth import authenticate
 from django.forms import modelform_factory
 
 from forms_advanced.web.models import Person
@@ -9,7 +10,29 @@ from forms_advanced.web.models import Person
 class PersonForm(forms.ModelForm):
     class Meta:
         model = Person
-        fields = '__all__'
+        exclude = ("created_by",)
+
+    def __init__(self, *args, **kwargs):
+        if "user" in kwargs:
+            self.user = kwargs.pop('user')
+        super().__init__(*args, **kwargs)
+
+    def clean(self):
+        cleaned_data = super().clean()
+        # print(cleaned_data)
+        return cleaned_data
+
+    def save(self, commit=True):
+        instance = super().save(commit=False)
+
+        if self.user.is_authenticated:
+            instance.created_by = self.user
+
+        instance.save()
+        return instance
+
+    # def clean_first_name(self):
+    #     pass
 
         # labels = {
         #     "first_name": "First name",
