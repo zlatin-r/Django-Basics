@@ -15,7 +15,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "forms_advanced.web.apps.WebConfig"
+    "forms_advanced.web"
 ]
 
 MIDDLEWARE = [
