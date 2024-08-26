@@ -9,10 +9,27 @@ def validate_first_name(value):
 
 
 class Person(models.Model):
+    MAX_LENGTH_FIRST_NAME = 32
+    MAX_LENGTH_LAST_NAME = 32
+
+    MIN_LENGTH_FIRST_NAME = 2
+    MIN_LENGTH_LAST_NAME = 2
+
     first_name = models.CharField(
-        max_length=32,
+        max_length=MAX_LENGTH_FIRST_NAME,
         validators=(
             validate_first_name,
-            MinLengthValidator(1)
+            MinLengthValidator(MIN_LENGTH_FIRST_NAME),
         )
+    )
+
+    last_name = models.CharField(
+        max_length=MAX_LENGTH_LAST_NAME,
+        validators=(
+            MinLengthValidator(MIN_LENGTH_LAST_NAME),
+        )
+    )
+
+    age = models.PositiveSmallIntegerField(
+
     )
