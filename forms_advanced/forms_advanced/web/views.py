@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from forms_advanced.web.forms import PersonForm, UpdatePersonForm, PersonFormSet
+from forms_advanced.web.models import Person
 
 
 def index(request):
@@ -10,6 +11,7 @@ def index(request):
     context = {
         "person_form": person_form,
         "update_person_form": update_person_form,
+        "person_list": Person.objects.all(),
     }
 
     return render(request, "web/index.html", context)
@@ -26,7 +28,7 @@ def show_formset(request):
 
 
 def create_person(request):
-    form = PersonForm(request.POST, user=request.user)
+    form = PersonForm(request.POST, request.FILES, user=request.user)
 
     if form.is_valid():
         form.save()

@@ -1,11 +1,72 @@
-<h1>Create Form</h1>
+{% load crispy_forms_tags %}
+
+
+<ul>
+    {% for person in person_list %}
+        <li>
+            {% if person.profile_image %}
+                <img 
+                        src="{{ person.profile_image.url }}" 
+                        height="70">
+            {% else %}
+                <img 
+                        src="https://media.istockphoto.com/id/518552551/photo/male-silhouette-profile-picture-with-question-mark.jpg?s=612x612&w=0&k=20&c=vCJR4RK29efe_TCPtPdhArezQvp1lcyOMAJ80I8hNOA="
+                        height="70">
+            {% endif %}
+            {{ person.first_name }} {{ person.last_name }}
+        </li>
+    {% endfor %}
+</ul>
+
+
+<h1>Create Form (raw)</h1>
+<form action="{% url 'create_person' %}" method="post" enctype="multipart/form-data">
+    {{ person_form }}
+    {% csrf_token %}
+    <button>Create</button>
+</form>
+
+<h1>Create Form (as_p)</h1>
 <form action="{% url 'create_person' %}" method="post">
     {{ person_form.as_p }}
     {% csrf_token %}
     <button>Create</button>
 </form>
 
-<h1>Update Form</h1>
-<form action="">
-    {{ update_person_form.as_p }}
+<h1>Create Form (as_table)</h1>
+<form action="{% url 'create_person' %}" method="post">
+    {{ person_form.as_table }}
+    {% csrf_token %}
+    <button>Create</button>
 </form>
+
+<h1>Create Form (custom)</h1>
+{# {% create-form action="{% url 'create_person'%}" method="post" submit_text="Create" %} #}
+<form action="{% url 'create_person' %}" method="post">
+    {% for field in person_form %}
+        <label for="{{ field.id.for_label }}"></label>
+        <strong>{{ field.label }}</strong>
+        {% if field.widget_type == "select" %}
+            {# {% make_select field=field %} #}
+        {% else %}
+            {# {% make_input field=filed %} #}
+            <input
+                    type="{{ field.widget_type }}"
+                    name="{{ filed.html_name }}"
+                    id="{{ field.id_for_label }}"
+                    class="form-control">
+        {% endif %}
+    {% endfor %}
+
+    {% csrf_token %}
+
+    <button>Create</button>
+</form>
+
+<h1>Create form (crispy)</h1>
+{% crispy person_form %}
+
+{#<h1>Update Form</h1>#}
+{#<form action="">#}
+{#    {{ update_person_form.as_p }}#}
+{#</form>#}

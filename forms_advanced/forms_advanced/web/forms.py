@@ -1,8 +1,11 @@
 from dataclasses import fields
 
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit
 from django import forms
 from django.contrib.auth import authenticate
 from django.forms import modelform_factory, modelformset_factory
+from django.urls import reverse
 
 from forms_advanced.web.models import Person
 
@@ -12,10 +15,23 @@ class PersonForm(forms.ModelForm):
         model = Person
         exclude = ("created_by",)
 
+        labels = {
+            "first_name": "Enter your first name:",
+        }
+
     def __init__(self, *args, **kwargs):
         if "user" in kwargs:
             self.user = kwargs.pop('user')
+
         super().__init__(*args, **kwargs)
+
+        self.helper = FormHelper()
+
+        self.helper.form_id = 'id-exampleForm'
+        self.helper.form_class = 'blueForms'
+        self.helper.form_method = 'post'
+        self.helper.form_action = reverse("create_person")
+        self.helper.add_input(Submit('submit', 'Create Person'))
 
     def clean(self):
         cleaned_data = super().clean()
