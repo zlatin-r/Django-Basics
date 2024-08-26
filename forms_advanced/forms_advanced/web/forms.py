@@ -2,7 +2,7 @@ from dataclasses import fields
 
 from django import forms
 from django.contrib.auth import authenticate
-from django.forms import modelform_factory
+from django.forms import modelform_factory, modelformset_factory
 
 from forms_advanced.web.models import Person
 
@@ -76,3 +76,7 @@ class UpdatePersonForm(ReadOnlyFieldsMixin, PersonForm):
 
 
 PersonForm2 = modelform_factory(Person, fields='__all__')
+
+PersonFormSet = modelformset_factory(Person, exclude=("created_by",))
+# PersonFormSet = modelformset_factory(Person, form=PersonForm, extra=2)
+

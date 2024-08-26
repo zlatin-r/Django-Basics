@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from forms_advanced.web.forms import PersonForm, UpdatePersonForm
+from forms_advanced.web.forms import PersonForm, UpdatePersonForm, PersonFormSet
 
 
 def index(request):
@@ -13,6 +13,16 @@ def index(request):
     }
 
     return render(request, "web/index.html", context)
+
+
+def show_formset(request):
+    form_set = PersonFormSet()
+
+    context = {
+        "form_set": form_set,
+    }
+
+    return render(request, "web/formsets.html", context)
 
 
 def create_person(request):
