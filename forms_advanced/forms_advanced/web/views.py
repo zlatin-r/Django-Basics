@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+from forms_advanced.web.forms import PersonForm
+
+pf = PersonForm()
+
+pf.is_valid()

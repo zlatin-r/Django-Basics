@@ -13,5 +13,6 @@ class Person(models.Model):
         max_length=32,
         validators=(
             validate_first_name,
+            MinLengthValidator(1)
         )
     )
