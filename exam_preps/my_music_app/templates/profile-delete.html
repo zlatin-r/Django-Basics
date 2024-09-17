@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>My Music App</title>
     <!-- Static Load -->
-    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/staticfiles/css/style.css" />
   </head>
 
   <body>
@@ -12,7 +12,7 @@
       <!-- Navigation Bar -->
       <header>
         <nav>
-          <img src="/static/images/headphones.png" alt="headphones" />
+          <img src="/staticfiles/images/headphones.png" alt="headphones" />
           <a href="#">Home</a>
           <ul></ul>
           <ul>
@@ -25,31 +25,20 @@
       <!-- End Navigation Bar -->
 
       <!-- Main Content -->
-      <!--Details Page-->
+      <!-- Delete Profile Page-->
       <section id="detailsPage">
         <div class="wrapper">
-          <div class="profilePage">
-            <img
-              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-              alt="Profile Image"
-            />
-          </div>
-
           <div class="profileText">
-            <!-- Profile Info -->
-            <h1>Username: testUser_12345</h1>
-            <h1>Email: testuser@email.com</h1>
-            <h1>Age: 27</h1>
-            <h1>Albums: 3</h1>
-          </div>
-
-          <div class="actionBtn">
-            <!-- Button for Deleting the Profile -->
-            <a href="#" class="remove">Delete</a>
+            <!-- Delete Profile Form -->
+            <h1>Are you sure you want to delete your profile?</h1>
+            <form>
+              <!-- Confirm Button -->
+              <button class="delete-profile" type="submit">Delete</button>
+            </form>
+            <!-- End Delete Profile Form -->
           </div>
         </div>
       </section>
-
       <!-- Footer -->
       <footer>
         <div>&copy;SoftUni Team 2024. All rights reserved.</div>
