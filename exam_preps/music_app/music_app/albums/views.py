@@ -1,6 +1,7 @@
 from django.urls import reverse_lazy
 from django.views import generic as views
 
+from common.profile_helpers import get_profile
 from music_app.albums.models import Album
 
 
@@ -22,3 +23,7 @@ class CreateAlbumView(AlbumFormViewMixin, views.CreateView):
     fields = ("name", "artist_name", "genre", "description", "image_url", "price")
     template_name = "albums/album-add.html"
     success_url = reverse_lazy("index")
+
+    def form_valid(self, form):
+        form.instance.owner_id = get_profile().pk
+        return super().form_valid(form)
