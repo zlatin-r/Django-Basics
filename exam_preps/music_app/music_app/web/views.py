@@ -1,13 +1,8 @@
-from django import forms
 from django.shortcuts import render, redirect
-from django.views import generic as views
 
-from music_app.profiles.models import Profile
+from common.profile_helpers import get_profile
+from music_app.albums.models import Album
 from music_app.web.forms import CreateProfileForm
-
-
-def get_profile():
-    return Profile.objects.first()
 
 
 def create_profile(request):
@@ -28,7 +23,11 @@ def index(request):
     if profile is None:
         return create_profile(request)
 
-    return render(request, "web/home-with-profile.html")
+    context = {
+        "albums": Album.objects.all(),
+    }
+
+    return render(request, "web/home-with-profile.html", context)
 
 # CBV:
 
