@@ -1,6 +1,9 @@
 from django.core.validators import MinValueValidator
 from django.db import models
 
+from music_app.profiles.models import Profile
+
+
 class Album(models.Model):
     MAX_NAME_LENGTH = 30
     MAX_ARTIST_NAME_LENGTH = 30
