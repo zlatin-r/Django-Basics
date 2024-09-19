@@ -15,6 +15,6 @@ def index(request):
     profile = get_profile()
 
     if profile is None:
-        create_profile(request)
+        return create_profile(request)
 
     return render(request, "web/home-with-profile.html")
