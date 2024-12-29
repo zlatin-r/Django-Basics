@@ -1,23 +1,23 @@
 {% extends "base.html" %}
-{% block main_content %}
+{% block content %}
 
     <section id="catalogPage">
 
-        {% if albums %}
+        {% if album_list %}
             <h1>All Albums</h1>
         {% else %}
             <p>No Albums in Catalog!</p>
         {% endif %}
 
-        {% for album in albums %}
+        {% for album in album_list %}
             <div class="card-box">
                 <img src="{{ album.image_url }}" alt="{{ album.description }}"/>
                 <div>
                     <div class="text-center">
                         <p class="name">Name: {{ album.album_name }}</p>
-                        <p class="artist">Artist: {{ album.artist_name }}</p>
+                        <p class="artist">Artist: {{ album.artist }}</p>
                         <p class="genre">Genre: {{ album.genre }}</p>
-                        <p class="price">Price: {{ album.price }}</p>
+                        <p class="price">Price: {{ album.price|floatformat:2 }}</p>
                     </div>
                     <div class="btn-group">
                         <a href="#">Details</a>
