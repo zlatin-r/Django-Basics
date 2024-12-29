@@ -1,7 +1,7 @@
 from django.core.validators import MinLengthValidator
 from django.db import models
 
-from music_app.profiles.validators import validate_username
+from music_app.profiles.validators import validate_username, AlphaNumericValidator
 
 
 class Profile(models.Model):
@@ -12,7 +12,7 @@ class Profile(models.Model):
         max_length=MAX_USERNAME_LENGTH,
         validators=(
             MinLengthValidator(MIN_USERNAME_LENGTH),
-            validate_username,
+            AlphaNumericValidator(),
         ),
         null=False,
         blank=False,

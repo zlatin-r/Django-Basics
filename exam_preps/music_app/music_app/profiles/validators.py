@@ -1,5 +1,6 @@
 from django.core.exceptions import ValidationError
 from django.utils.deconstruct import deconstructible
+from django.utils.text import slugify
 
 
 def validate_username(username):
@@ -29,7 +30,7 @@ class AlphaNumericValidator:
             self.__message = value
 
     def __call__(self, value, *args, **kwargs):
-        if not value.isnumeric():
+        if value != slugify(value):
             raise ValidationError(self.message)
 
     # the setter and getter are not necessary
