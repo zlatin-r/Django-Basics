@@ -1,8 +1,7 @@
 from django.urls import path
 
-from music_app.common.views import index, create_profile
+from music_app.common.views import HomePage
 
 urlpatterns = (
-    path("", index, name="index"),
-    path("create-profile/", create_profile,  name="create_profile"),
+    path("", HomePage.as_view(), name="home"),
 )
