@@ -30,7 +30,7 @@ class AlphaNumericValidator:
             self.__message = value
 
     def __call__(self, value, *args, **kwargs):
-        if value != slugify(value):
+        if "-" in value or value.lower() != slugify(value):
             raise ValidationError(self.message)
 
     # the setter and getter are not necessary
