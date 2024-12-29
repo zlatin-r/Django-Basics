@@ -1,8 +1,8 @@
 from django.core.validators import MinValueValidator
 from django.db import models
 
-from music_app.albums.chioces import GenreChoices
-from music_app.profiles.models import Profile
+from albums.chioces import GenreChoices
+from profiles.models import Profile
 
 
 class Album(models.Model):
