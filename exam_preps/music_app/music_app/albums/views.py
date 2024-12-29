@@ -16,3 +16,6 @@ class AlbumCreateView(CreateView):
     def form_valid(self, form):
         form.instance.owner = get_user_obj()
         return super().form_valid(form)
+
+
+# TODO Video watched
