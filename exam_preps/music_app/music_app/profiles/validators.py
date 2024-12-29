@@ -1,4 +1,5 @@
 from django.core.exceptions import ValidationError
+from django.utils.deconstruct import deconstructible
 
 
 def validate_username(username):
@@ -6,3 +7,29 @@ def validate_username(username):
 
     if not is_valid:
         raise ValidationError("Ensure this value contains only letters, numbers, and underscore.")
+
+
+# OR validate with class:
+
+
+@deconstructible
+class AlphaNumericValidator:
+    def __init__(self, message=None):
+        self.message = message
+
+    @property
+    def message(self):
+        return self.__message
+
+    @message.setter
+    def message(self, value):
+        if value is None:
+            self.__message = "Ensure this value contains only letters, numbers, and underscore."
+        else:
+            self.__message = value
+
+    def __call__(self, value, *args, **kwargs):
+        if not value.isnumeric():
+            raise ValidationError(self.message)
+
+    # the setter and getter are not necessary
