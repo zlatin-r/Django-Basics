@@ -18,4 +18,4 @@ class AlbumCreateView(CreateView):
         return super().form_valid(form)
 
 
-# TODO Video watched
+# TODO Video watched till 2:07 minute
