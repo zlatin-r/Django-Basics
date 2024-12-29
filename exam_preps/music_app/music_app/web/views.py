@@ -14,7 +14,7 @@ def create_profile(request):
     context = {
         "form": form
     }
-    return render(request, "web/home-no-profile.html", context)
+    return render(request, "web/../../templates/profiles/home-no-profile.html", context)
 
 
 def index(request):
@@ -27,7 +27,7 @@ def index(request):
         "albums": Album.objects.all(),
     }
 
-    return render(request, "web/home-with-profile.html", context)
+    return render(request, "web/../../templates/profiles/home-with-profile.html", context)
 
 # CBV:
 
