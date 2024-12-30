@@ -4,4 +4,5 @@ from music_app.profiles.views import ProfileDetailView
 
 urlpatterns = [
     path('details/', ProfileDetailView.as_view(), name='profile-details'),
+    path('delete/', ProfileDetailView.as_view(), name='profile-delete'),
 ]
