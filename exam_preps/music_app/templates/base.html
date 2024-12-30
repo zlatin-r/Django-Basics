@@ -1,4 +1,5 @@
 {% load static %}
+{% load get_user %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +19,7 @@
             <a href="{% url 'home' %}">Home</a>
             <ul></ul>
 
+            {% get_user as profile %}
             {% if profile %}
             <ul>
                 <!--Only for user with created profile-->
