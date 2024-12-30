@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView
 
-from music_app.albums.forms import AlbumCreateForm
+from music_app.albums.forms import AlbumCreateForm, AlbumEditForm
 from music_app.albums.models import Album
 from music_app.utils import get_user_obj
 
@@ -18,4 +18,9 @@ class AlbumCreateView(CreateView):
         return super().form_valid(form)
 
 
-# TODO Video watched till 2:07 minute
+class AlbumEditView(UpdateView):
+    model = Album
+    form_class = AlbumEditForm
+    pk_url_kwarg = 'id'
+    template_name = 'albums/album-edit.html'
+    success_url = reverse_lazy('home')

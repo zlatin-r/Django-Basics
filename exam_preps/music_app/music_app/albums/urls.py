@@ -1,6 +1,9 @@
 from music_app.albums import views
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path('add/', views.AlbumCreateView.as_view(), name='add-album'),
+    path('<int:id>/', include([
+        path('edit/', views.AlbumEditView.as_view(), name='album-edit'),
+    ]))
 ]
