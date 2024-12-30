@@ -1,8 +1,7 @@
 from django.urls import path
-
-from music_app.profiles.views import ProfileDetailView
+from music_app.profiles import views
 
 urlpatterns = [
-    path('details/', ProfileDetailView.as_view(), name='profile-details'),
-    path('delete/', ProfileDetailView.as_view(), name='profile-delete'),
+    path('details/', views.ProfileDetailView.as_view(), name='profile-details'),
+    path('delete/', views.ProfileDeleteView.as_view(), name='profile-delete'),
 ]
