@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from django.views.generic import DetailView
 
-# Create your views here.
+from music_app.utils import get_user_obj
+
+
+class ProfileDetailView(DetailView):
+    template_name = 'profiles/profile-details.html'
+
+    def get_object(self, queryset=None):
+        return get_user_obj()

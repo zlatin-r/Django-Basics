@@ -32,8 +32,6 @@ class AlbumDetailsView(DetailView):
     template_name = 'albums/album-details.html'
 
 
-
-
 class AlbumDeleteView(DeleteView):
     model = Album
     form_class = AlbumDeleteForm
@@ -42,4 +40,7 @@ class AlbumDeleteView(DeleteView):
     success_url = reverse_lazy('home')
 
     def get_initial(self):
-        return self.object.__dict__ # fulfill the form with the data of the current object
+        return self.object.__dict__  # fulfill the form fields with the data of the current object
+
+    def form_invalid(self, form):
+        return self.form_valid(form)
