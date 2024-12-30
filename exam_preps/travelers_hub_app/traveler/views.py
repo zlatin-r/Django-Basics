@@ -10,7 +10,7 @@ class TravelerCreateView(CreateView):
     model = models.Traveler
     form_class = TravelerCreateForm
     template_name = 'traveler/create-traveler.html'
-    success_url = reverse_lazy('common/all-trips.html')
+    success_url = reverse_lazy('all-trips')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
