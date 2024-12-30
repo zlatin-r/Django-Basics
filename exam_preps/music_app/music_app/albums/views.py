@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, DetailView
 
 from music_app.albums.forms import AlbumCreateForm, AlbumEditForm
 from music_app.albums.models import Album
@@ -24,3 +24,9 @@ class AlbumEditView(UpdateView):
     pk_url_kwarg = 'id'
     template_name = 'albums/album-edit.html'
     success_url = reverse_lazy('home')
+
+
+class AlbumDetailsView(DetailView):
+    model = Album
+    pk_url_kwarg = 'id'
+    template_name = 'albums/album-details.html'
