@@ -4,3 +4,6 @@ from django.shortcuts import render
 
 def show_home_page(request):
     return render(request, template_name='common/index.html')
+
+def show_all_trips(request):
+    return render(request, template_name='common/all-trips.html')
