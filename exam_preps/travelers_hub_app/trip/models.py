@@ -36,4 +36,3 @@ class Trip(models.Model):
         on_delete=models.CASCADE,
     )
 
-  
