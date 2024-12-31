@@ -35,3 +35,4 @@ class Trip(models.Model):
         to=Traveler,
         on_delete=models.CASCADE,
     )
+
