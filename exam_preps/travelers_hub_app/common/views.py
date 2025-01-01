@@ -22,3 +22,4 @@ class AllTripsView(ListView):
     def get_queryset(self):
         return get_all_records()  # Replace with the function to fetch all trips
 
+
