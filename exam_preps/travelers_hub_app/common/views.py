@@ -26,3 +26,4 @@ class AllTripsView(ListView):
 
 
 
+
