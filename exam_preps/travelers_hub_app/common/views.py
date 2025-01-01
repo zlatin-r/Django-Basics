@@ -23,3 +23,4 @@ class AllTripsView(ListView):
         return get_all_records()  # Replace with the function to fetch all trips
 
 
+
