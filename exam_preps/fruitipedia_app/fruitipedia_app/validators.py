@@ -21,3 +21,24 @@ class StartLetterValidator:
     def __call_(self, value, *args, **kwargs):
         if not value[0].isalpha():
             ValidationError(self.__message)
+
+
+@deconstructible
+class OnlyLettersValidator:
+    def __init__(self, message):
+        self.message = message
+
+    @property
+    def message(self):
+        return self.__message
+
+    @message.setter
+    def message(self, value):
+        if value is None:
+            self.__message = "Fruit name should contain only letters!"
+        else:
+            self.__message = value
+
+    def __call_(self, value, *args, **kwargs):
+        if not value.isalpha():
+            ValidationError(self.__message)
