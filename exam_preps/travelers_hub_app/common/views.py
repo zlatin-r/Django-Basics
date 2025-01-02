@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 
-from travelers_hub_app.utils import get_all_records, get_traveler_obj
+from travelers_hub_app.utils import get_all_trips, get_traveler_obj
 from trip.models import Trip
 
 

@@ -1,9 +1,9 @@
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView, TemplateView
 
 from traveler import models
 from traveler.forms import TravelerCreateForm
-from travelers_hub_app.utils import get_traveler_obj
+from travelers_hub_app.utils import get_traveler_obj, get_all_trips
 
 
 class TravelerCreateView(CreateView):
@@ -18,8 +18,16 @@ class TravelerCreateView(CreateView):
         return context
 
 
-class TravelerDetailsView(DetailView):
-    pass
+class TravelerDetailsView(TemplateView):
+    template_name = 'traveler/details-traveler.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['traveler'] = get_traveler_obj()
+        context['trips'] = get_all_trips().order_by('-start_date')
+
+        return context
 
 
 class TravelerEditView(UpdateView):

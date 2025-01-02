@@ -6,5 +6,5 @@ def get_traveler_obj():
     return Traveler.objects.first()
 
 
-def get_all_records():
+def get_all_trips():
     return Trip.objects.all()
