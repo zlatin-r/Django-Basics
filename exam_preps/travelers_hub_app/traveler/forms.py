@@ -21,3 +21,7 @@ class TravelerCreateForm(TravelerBaseForm):
 
 class TravelerDetailsForm(TravelerBaseForm):
     pass
+
+
+class TravelerEditForm(TravelerBaseForm):
+    pass
