@@ -10,8 +10,8 @@ def show_home_page(request):
 
 
 class AllTripsView(ListView):
-    context_object_name = 'all_trips'
     model = Trip
+    context_object_name = 'all_trips'
     template_name = 'common/all-trips.html'
 
     def get_context_data(self, **kwargs):

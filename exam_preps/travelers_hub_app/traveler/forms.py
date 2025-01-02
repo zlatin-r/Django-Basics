@@ -6,13 +6,11 @@ from traveler.models import Traveler
 class TravelerBaseForm(forms.ModelForm):
     class Meta:
         model = Traveler
-        fields = '__all__'
+        exclude = ('traveler', )
+
 
 
 class TravelerCreateForm(TravelerBaseForm):
-    class Meta:
-        model = Traveler
-        exclude = ('about_me',)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

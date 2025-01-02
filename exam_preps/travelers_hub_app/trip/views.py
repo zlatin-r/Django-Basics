@@ -14,9 +14,12 @@ class TripCreateView(CreateView):
 
     def form_valid(self, form):
         form.instance.traveler = get_traveler_obj()
+        return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['traveler'] = get_traveler_obj()
+        return context
 
 
 class TripDetailsView(DetailView):
