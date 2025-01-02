@@ -1,14 +1,13 @@
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView, TemplateView
+from django.views.generic import CreateView, UpdateView, DeleteView, TemplateView
 
-from traveler import models
 from traveler.forms import TravelerCreateForm, TravelerEditForm
 from traveler.models import Traveler
 from travelers_hub_app.utils import get_traveler_obj, get_all_trips
 
 
 class TravelerCreateView(CreateView):
-    model = models.Traveler
+    model = Traveler
     form_class = TravelerCreateForm
     template_name = 'traveler/create-traveler.html'
     success_url = reverse_lazy('all-trips')
