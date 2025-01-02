@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
+from trip.models import Trip
+
 
 class TripCreateView(CreateView):
-    pass
+    model = Trip
+    template_name = 'trip/create-trip.html'
 
 
 class TripDetailsView(DetailView):

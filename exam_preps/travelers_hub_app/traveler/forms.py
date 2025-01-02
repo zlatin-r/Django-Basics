@@ -10,6 +10,9 @@ class TravelerBaseForm(forms.ModelForm):
 
 
 class TravelerCreateForm(TravelerBaseForm):
+    class Meta:
+        model = Traveler
+        exclude = ('about_me',)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
