@@ -6,7 +6,7 @@ from trip.models import Trip
 class TripBaseForm(forms.ModelForm):
     class Meta:
         model = Trip
-        exclude = ('traveler', )
+        exclude = ('traveler',)
 
 
 class CreateTripForm(TripBaseForm):
@@ -22,3 +22,7 @@ class CreateTripForm(TripBaseForm):
         self.fields['start_date'].widget = forms.DateInput(attrs={'type': 'date'})
         self.fields['duration'].widget.attrs['placeholder'] = "*Duration in days is expected."
         self.fields['image_url'].widget.attrs['placeholder'] = "An optional image URL..."
+
+
+class EditTripForm(TripBaseForm):
+    pass

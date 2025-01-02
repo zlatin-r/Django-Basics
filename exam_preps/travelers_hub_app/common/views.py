@@ -18,7 +18,3 @@ class AllTripsView(ListView):
         context = super().get_context_data(**kwargs)
         context['traveler'] = get_traveler_obj()  # Add custom context for the traveler
         return context
-
-    def get_queryset(self):
-        return get_all_records()  # Replace with the function to fetch all trips
-

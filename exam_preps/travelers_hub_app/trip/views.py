@@ -2,12 +2,13 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 from travelers_hub_app.utils import get_traveler_obj
-from trip.forms import CreateTripForm
+from trip import models
+from trip.forms import CreateTripForm, EditTripForm
 from trip.models import Trip
 
 
 class TripCreateView(CreateView):
-    model = Trip
+    model = models.Trip
     form_class = CreateTripForm
     template_name = 'trip/create-trip.html'
     success_url = reverse_lazy('all-trips')
@@ -23,7 +24,7 @@ class TripCreateView(CreateView):
 
 
 class TripDetailsView(DetailView):
-    model = Trip
+    model = models.Trip
     template_name = 'trip/details-trip.html'
     context_object_name = 'trip'
 
@@ -34,7 +35,16 @@ class TripDetailsView(DetailView):
 
 
 class TripEditView(UpdateView):
-    pass
+    model = models.Trip
+    form_class = EditTripForm
+    template_name = 'trip/edit-trip.html'
+    success_url = reverse_lazy('all-trips')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['traveler'] = get_traveler_obj()  # Add traveler to context
+        return context
+
 
 
 class TripDeleteView(DeleteView):
