@@ -25,7 +25,6 @@ class TripCreateView(CreateView):
 class TripDetailsView(DetailView):
     model = Trip
     template_name = 'trip/details-trip.html'
-    context_object_name = 'trip'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
