@@ -37,9 +37,12 @@ class TravelerEditView(UpdateView):
     template_name = 'traveler/edit-traveler.html'
     success_url = reverse_lazy('traveler-details')
 
+    def get_object(self, queryset=None):
+        return get_traveler_obj()
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['traveler'] = get_traveler_obj()  # Add traveler to context
+        context['traveler'] = get_traveler_obj()
         return context
 
     def get_initial(self):
