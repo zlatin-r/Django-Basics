@@ -4,7 +4,7 @@ from django.utils.deconstruct import deconstructible
 
 @deconstructible
 class StartLetterValidator:
-    def __init__(self, message):
+    def __init__(self, message=None):
         self.message = message
 
     @property
@@ -18,14 +18,14 @@ class StartLetterValidator:
         else:
             self.__message = value
 
-    def __call_(self, value, *args, **kwargs):
+    def __call__(self, value, *args, **kwargs):
         if not value[0].isalpha():
             ValidationError(self.__message)
 
 
 @deconstructible
 class OnlyLettersValidator:
-    def __init__(self, message):
+    def __init__(self, message=None):
         self.message = message
 
     @property
@@ -39,6 +39,6 @@ class OnlyLettersValidator:
         else:
             self.__message = value
 
-    def __call_(self, value, *args, **kwargs):
+    def __call__(self, value, *args, **kwargs):
         if not value.isalpha():
             ValidationError(self.__message)
