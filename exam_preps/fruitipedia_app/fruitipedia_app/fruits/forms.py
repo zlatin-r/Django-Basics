@@ -24,3 +24,7 @@ class FruitCreateForm(forms.ModelForm):
         self.fields['nutrition'].widget.attrs['placeholder'] = "Nutrition Info"
 
 
+class FruitEditForm(forms.ModelForm):
+    class Meta:
+        model = Fruit
+        exclude = ('owner',)

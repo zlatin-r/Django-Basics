@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
-from fruitipedia_app.fruits.forms import FruitCreateForm
+from fruitipedia_app.fruits.forms import FruitCreateForm, FruitEditForm
 from fruitipedia_app.fruits.models import Fruit
 from fruitipedia_app.utils import get_profile
 
@@ -24,11 +24,11 @@ class FruitDetailsView(DetailView):
     context_object_name = 'fruit'
 
 
-
-
-
 class FruitEditView(UpdateView):
-    pass
+    model = Fruit
+    form_class = FruitEditForm
+    template_name = 'fruit/edit-fruit.html'
+    success_url = reverse_lazy('dashboard')
 
 
 class FruitDeleteView(DeleteView):
