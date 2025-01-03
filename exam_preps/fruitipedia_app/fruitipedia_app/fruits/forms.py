@@ -22,3 +22,5 @@ class FruitCreateForm(forms.ModelForm):
         self.fields['image_url'].widget.attrs['placeholder'] = "Fruit Image URL"
         self.fields['description'].widget.attrs['placeholder'] = "Fruit Description"
         self.fields['nutrition'].widget.attrs['placeholder'] = "Nutrition Info"
+
+

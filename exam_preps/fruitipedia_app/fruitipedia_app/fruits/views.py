@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 from fruitipedia_app.fruits.forms import FruitCreateForm
+from fruitipedia_app.fruits.models import Fruit
 from fruitipedia_app.utils import get_profile
 
 
@@ -18,7 +19,12 @@ class FruitCreateView(CreateView):
 
 
 class FruitDetailsView(DetailView):
-    pass
+    model = Fruit
+    template_name = 'fruit/details-fruit.html'
+    context_object_name = 'fruit'
+
+
+
 
 
 class FruitEditView(UpdateView):
