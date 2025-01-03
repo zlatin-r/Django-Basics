@@ -31,7 +31,7 @@
             {% else %}
                 <!-- If user profile has NOT been created -->
                 <div class="guest">
-                    <a href="#">Create Profile</a>
+                    <a href="{% url 'profile-create' %}">Create Profile</a>
                 </div>
             {% endif %}
 
