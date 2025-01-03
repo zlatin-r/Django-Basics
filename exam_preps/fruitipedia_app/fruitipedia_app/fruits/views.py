@@ -40,15 +40,8 @@ class FruitDeleteView(DeleteView):
     def get_initial(self):
         return self.object.__dict__
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        # Adding extra context, like profile, if needed
-        context['profile'] = get_profile()  # Example for profile
-        return context
+    def form_invalid(self, form):
+        return self.form_valid(form)
 
-    def get_form(self):
-        # If you need to modify the form before rendering (e.g., disable fields)
-        form = super().get_form()
-        for field in form.fields.values():
-            field.disabled = True  # Disable form fields
-        return form
+
+
