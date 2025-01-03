@@ -3,26 +3,25 @@ from django import forms
 from fruitipedia_app.profiles.models import Profile
 
 
-class ProfileBaseForm(forms.Form):
+class ProfileCreateForm(forms.ModelForm):
     class Meta:
         model = Profile
+        fields = ('first_name', 'last_name', 'email', 'password')
 
+        widgets = {
+            'password': forms.PasswordInput(),
+        }
 
-class ProfileCreateForm(ProfileBaseForm):
-    widgets = {
-        'password': forms.PasswordInput(),
-    }
+        labels = {
+            'first_name': '',
+            'last_name': '',
+            'email': '',
+            'password': '',
+        }
 
-    labels = {
-        'first_name': '',
-        'last_name': '',
-        'email': '',
-        'password': '',
-    }
-
-    help_texts = {
-        'password': "*Password length requirements: 8 to 20 characters"
-    }
+        help_texts = {
+            'password': "*Password length requirements: 8 to 20 characters"
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
