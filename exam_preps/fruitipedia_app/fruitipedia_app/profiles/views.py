@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
+from fruitipedia_app.fruits.models import Fruit
 from fruitipedia_app.profiles.forms import ProfileCreateForm
 from fruitipedia_app.profiles.models import Profile
 from fruitipedia_app.utils import get_profile
@@ -20,7 +21,21 @@ class ProfileCreateView(CreateView):
 
 
 class ProfileDetailsView(DetailView):
-    pass
+    model = Profile
+    template_name = 'profile/details-profile.html'
+    context_object_name = 'profile'
+
+    def get_object(self, queryset=None):
+        return get_profile()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        profile = self.object
+        posts_count = Fruit.objects.filter(owner=profile).count()
+        context['posts_count'] = posts_count
+
+        return context
 
 
 class ProfileEditView(UpdateView):

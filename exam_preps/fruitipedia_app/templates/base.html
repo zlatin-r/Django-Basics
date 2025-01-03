@@ -26,7 +26,7 @@
                 <div class="user">
                     <a href="{% url 'dashboard' %}">Dashboard</a>
                     <a href="{% url 'fruit-create' %}">Add Fruit</a>
-                    <a href="#">Profile</a>
+                    <a href="{% url 'profile-details' %}">Profile</a>
                 </div>
             {% else %}
                 <!-- If user profile has NOT been created -->

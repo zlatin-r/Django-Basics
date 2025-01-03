@@ -37,3 +37,4 @@ class Fruit(models.Model):
         blank=True,
         null=False,
     )
+
