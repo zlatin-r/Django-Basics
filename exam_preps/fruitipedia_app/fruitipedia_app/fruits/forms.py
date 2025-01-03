@@ -3,7 +3,13 @@ from django import forms
 from fruitipedia_app.fruits.models import Fruit
 
 
-class FruitCreateForm(forms.ModelForm):
+class FruitBaseForm(forms.ModelForm):
+    class Meta:
+        model = Fruit
+        exclude = ('owner',)
+
+
+class FruitCreateForm(FruitBaseForm):
     class Meta:
         model = Fruit
         exclude = ('owner',)
@@ -24,7 +30,17 @@ class FruitCreateForm(forms.ModelForm):
         self.fields['nutrition'].widget.attrs['placeholder'] = "Nutrition Info"
 
 
-class FruitEditForm(forms.ModelForm):
+class FruitEditForm(FruitBaseForm):
+    pass
+
+class FruitDeleteForm(FruitBaseForm):
     class Meta:
         model = Fruit
-        exclude = ('owner',)
+        exclude = ('owner', 'nutrition')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for (_, field) in self.fields.items():
+            field.widget.attrs['disabled'] = 'disabled'
+            field.widget.attrs['readonly'] = 'readonly'
