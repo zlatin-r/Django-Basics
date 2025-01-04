@@ -27,6 +27,11 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 # Application definition
+USER_MADE_APPS = [
+    'wos_app.common',
+    'wos_app.user_profile',
+    'wos_app.cars',
+]
 
 INSTALLED_APPS = [
     'django.contrib.auth',
@@ -34,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-]
+] + USER_MADE_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

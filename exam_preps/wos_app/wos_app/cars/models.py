@@ -1,6 +1,6 @@
 from django.core.validators import MinLengthValidator, MinValueValidator
 from django.db import models
-from choices import CarTypeChoices
+from wos_app.cars.type_choices import CarTypeChoices
 from wos_app.common.validators import CarYearValidator
 from wos_app.user_profile.models import UserProfile
 
@@ -21,7 +21,7 @@ class Car(models.Model):
 
     type = models.CharField(
         max_length=MAX_LEN_TYPE,
-        choices=CarTypeChoices.choices,
+        choices=CarTypeChoices,
         blank=False,
         null=False,
     ),
