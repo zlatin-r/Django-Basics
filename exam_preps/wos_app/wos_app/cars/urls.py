@@ -1,6 +1,9 @@
 from django.urls import path
 
+from wos_app.cars import views
+
 urlpatterns = [
+    path('create/', views.CarCreateView.as_view(), name='create-car'),
 ]
 
 
