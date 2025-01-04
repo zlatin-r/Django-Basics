@@ -1,5 +1,9 @@
-urlpatterns = [
+from django.urls import path
 
+from wos_app.user_profile import views
+
+urlpatterns = [
+    path('create/', views.ProfileCreateView.as_view(), name='create-profile'),
 ]
 
 
