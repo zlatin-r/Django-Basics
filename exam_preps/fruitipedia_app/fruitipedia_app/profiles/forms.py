@@ -42,8 +42,3 @@ class ProfileEditForm(ProfileBaseForm):
     class Meta:
         model = Profile
         exclude = ('password', 'email')
-
-
-class ProfileDeleteForm(ProfileBaseForm):
-    model = Profile
-
