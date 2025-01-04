@@ -36,3 +36,9 @@ class ProfileCreateForm(ProfileBaseForm):
         self.fields['last_name'].widget.attrs['placeholder'] = "Last Name"
         self.fields['email'].widget.attrs['placeholder'] = "Email"
         self.fields['password'].widget.attrs['placeholder'] = "Password"
+
+
+class ProfileEditForm(ProfileBaseForm):
+    class Meta:
+        model = Profile
+        fields = '__all__'
