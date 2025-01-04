@@ -8,8 +8,8 @@
     {% else %}
 
         <section id="catalogue">
+            <h1>Total cars: {{ cars.count }}</h1>
             {% for car in cars %}
-                <h1>Total cars: {{ cars.count }}</h1>
 
                 <div class="car-card">
                     <div class="image-wrap">
@@ -17,14 +17,13 @@
                     </div>
                     <h3>{{ car.type }}</h3>
                     <h1>{{ car.model }}</h1>
-
                     <div class="details-buttons">
                         <a href="#" class="details-btn">Details</a>
                     </div>
                 </div>
+
             {% endfor %}
         </section>
-
     {% endif %}
 
 {% endblock %}
