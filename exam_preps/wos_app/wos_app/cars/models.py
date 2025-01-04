@@ -24,7 +24,7 @@ class Car(models.Model):
         choices=CarTypeChoices,
         blank=False,
         null=False,
-    ),
+    )
     model = models.CharField(
         max_length=MAX_LEN_MODEL,
         blank=False,
@@ -32,14 +32,14 @@ class Car(models.Model):
         validators=[
             MinLengthValidator(MIN_LEN_MODEL)
         ],
-    ),
+    )
     year = models.IntegerField(
         blank=False,
         null=False,
         validators=[
             CarYearValidator(MIN_YEAR, MAX_YEAR, ERROR_MESSAGE_YEAR),
         ],
-    ),
+    )
     image_url = models.URLField(
         unique=True,
         blank=False,
@@ -48,14 +48,14 @@ class Car(models.Model):
             'unique': ERROR_MESSAGE_UNIQUE,
         },
         # TODO ADD PLACEHOLDER "https://..."
-    ),
+    )
     price = models.FloatField(
         blank=False,
         null=False,
         validators=[
             MinValueValidator(MIN_PRICE)
         ]
-    ),
+    )
     owner = models.ForeignKey(
         to=UserProfile,
         on_delete=models.CASCADE

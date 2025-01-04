@@ -24,7 +24,7 @@ class UserProfile(models.Model):
             MinLengthValidator(MIN_LENGTH_USERNAME, message=ERROR_MESSAGE_USERNAME),
             UserNameValidator(),
         ],
-    ),
+    )
     email = models.EmailField(
         blank=False,
         null=False,
@@ -36,22 +36,22 @@ class UserProfile(models.Model):
         validators=[
             AgeValidator(),
         ]
-    ),
+    )
     password = models.CharField(
         max_length=MAX_LENGTH_PASSWORD,
         blank=False,
         null=False,
-    ),
+    )
     first_name = models.CharField(
         max_length=MAX_LENGTH_NAME,
         blank=True,
         null=True,
-    ),
+    )
     last_name = models.CharField(
         max_length=MAX_LENGTH_NAME,
         blank=True,
         null=True,
-    ),
+    )
     profile_picture = models.URLField(
         blank=True,
         null=True,
