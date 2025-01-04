@@ -3,13 +3,12 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 from fruitipedia_app.fruits.models import Fruit
-from fruitipedia_app.profiles.forms import ProfileCreateForm, ProfileEditForm
+from fruitipedia_app.profiles.forms import ProfileCreateForm, ProfileEditForm, ProfileDeleteForm
 from fruitipedia_app.profiles.models import Profile
 from fruitipedia_app.utils import get_profile
 
 
 class ProfileCreateView(CreateView):
-    model = Profile
     form_class = ProfileCreateForm
     template_name = 'profile/create-profile.html'
     success_url = reverse_lazy('dashboard')
@@ -21,7 +20,6 @@ class ProfileCreateView(CreateView):
 
 
 class ProfileDetailsView(DetailView):
-    model = Profile
     template_name = 'profile/details-profile.html'
     context_object_name = 'profile'
 
@@ -39,10 +37,15 @@ class ProfileDetailsView(DetailView):
 
 
 class ProfileEditView(UpdateView):
-    model = Profile
     form_class = ProfileEditForm
     template_name = 'profile/edit-profile.html'
+    success_url = reverse_lazy('profile-details')
+
+    def get_object(self, queryset=None):
+        return get_profile()
 
 
 class ProfileDeleteView(DeleteView):
-    pass
+    form_class = ProfileDeleteForm
+    template_name = 'profile/delete-profile.html'
+    success_url = reverse_lazy('home')

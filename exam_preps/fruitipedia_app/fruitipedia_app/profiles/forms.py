@@ -41,4 +41,9 @@ class ProfileCreateForm(ProfileBaseForm):
 class ProfileEditForm(ProfileBaseForm):
     class Meta:
         model = Profile
-        fields = '__all__'
+        exclude = ('password', 'email')
+
+
+class ProfileDeleteForm(ProfileBaseForm):
+    model = Profile
+
