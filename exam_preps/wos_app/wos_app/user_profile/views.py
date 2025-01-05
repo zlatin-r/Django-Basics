@@ -1,13 +1,10 @@
-from profile import Profile
-
 from django.db.models import Sum
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 from wos_app.cars.models import Car
-from wos_app.common.utils import get_profile, get_all_cars
+from wos_app.common.utils import get_profile
 from wos_app.user_profile.forms import ProfileCreateForm, ProfileEditForm, ProfileDeleteForm
-from wos_app.user_profile.models import UserProfile
 
 
 class ProfileCreateView(CreateView):
