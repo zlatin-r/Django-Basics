@@ -12,6 +12,7 @@ class ProfileCreateForm(forms.ModelForm):
             'password': forms.PasswordInput,
         }
 
+
 class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = UserProfile
@@ -21,3 +22,9 @@ class ProfileEditForm(forms.ModelForm):
     #     super().__init__(*args, **kwargs)
     #
     #     self.fields['age'].help_text = ""
+
+
+class ProfileDeleteForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ()
