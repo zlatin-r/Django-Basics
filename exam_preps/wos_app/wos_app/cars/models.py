@@ -59,5 +59,4 @@ class Car(models.Model):
     owner = models.ForeignKey(
         to=UserProfile,
         on_delete=models.CASCADE
-        # TODO MUST BE HIDDEN IN THE FORMS
     )
