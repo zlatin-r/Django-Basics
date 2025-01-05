@@ -2,11 +2,12 @@ from profile import Profile
 
 from django.db.models import Sum
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, UpdateView
 
 from wos_app.cars.models import Car
 from wos_app.common.utils import get_profile, get_all_cars
-from wos_app.user_profile.forms import ProfileCreateForm
+from wos_app.user_profile.forms import ProfileCreateForm, ProfileEditForm
+from wos_app.user_profile.models import UserProfile
 
 
 class ProfileCreateView(CreateView):
@@ -33,3 +34,12 @@ class ProfileDetailsView(DetailView):
         context['full_name'] = f"{profile.first_name} {profile.last_name}"
 
         return context
+
+
+class ProfileEditView(UpdateView):
+    template_name = 'profile/profile-edit.html'
+    form_class = ProfileEditForm
+    success_url = reverse_lazy('details-profile')
+
+    def get_object(self, queryset=None):
+        return get_profile()

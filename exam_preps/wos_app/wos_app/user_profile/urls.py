@@ -4,7 +4,8 @@ from wos_app.user_profile import views
 
 urlpatterns = [
     path('create/', views.ProfileCreateView.as_view(), name='create-profile'),
-    path('details/', views.ProfileDetailsView.as_view(), name='details-profile')
+    path('details/', views.ProfileDetailsView.as_view(), name='details-profile'),
+    path('edit/', views.ProfileEditView.as_view(), name='edit-profile'),
 ]
 
 
