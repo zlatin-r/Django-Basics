@@ -47,7 +47,6 @@ class Car(models.Model):
         error_messages={
             'unique': ERROR_MESSAGE_UNIQUE,
         },
-        # TODO ADD PLACEHOLDER "https://..."
     )
     price = models.FloatField(
         blank=False,
