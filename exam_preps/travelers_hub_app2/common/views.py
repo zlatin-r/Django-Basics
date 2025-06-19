@@ -9,3 +9,7 @@ def index(request):
         'traveler': traveler
     }
     return render(request, template_name='common/index.html', context=context)
+
+
+def all_trips_view(request):
+    pass

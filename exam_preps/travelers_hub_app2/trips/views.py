@@ -1,3 +1,18 @@
 from django.shortcuts import render
+from django.views.generic import CreateView, DetailView, DeleteView, UpdateView
 
-# Create your views here.
+
+class CreateTripView(CreateView):
+    ...
+
+
+class DetailsTripView(DetailView):
+    ...
+
+
+class EditTripView(UpdateView):
+    ...
+
+
+class DeleteTripView(DeleteView):
+    ...
