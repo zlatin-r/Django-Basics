@@ -1,5 +1,5 @@
 from traveler.models import Traveler
 
 
-def get_profile():
+def get_traveler_obj():
     return Traveler.objects.first()

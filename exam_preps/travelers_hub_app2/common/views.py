@@ -1,10 +1,10 @@
 from django.shortcuts import render
 
-from core.utils import get_profile
+from core.utils import get_traveler_obj
 
 
 def index(request):
-    traveler = get_profile()
+    traveler = get_traveler_obj()
     context = {
         'traveler': traveler
     }
