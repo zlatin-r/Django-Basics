@@ -8,7 +8,7 @@
 
     {% if trips %}
         <!-- Display a heading if there are trips, including their count -->
-        <h2>4 Shared Trips</h2>
+        <h2>{{ trips.count }} Shared Trips</h2>
 
     {% else %}
         <!-- Display a heading if there are NO trips -->
@@ -22,15 +22,18 @@
                 <!-- trip image if there is such, otherwise display the default one -->
                 {% if trip.image_url %}
 
-                <img src="{{ trip.image_url }}"
-                     alt="Cusco, Peru img"/>
+                    <img src="{{ trip.image_url }}"
+                         alt="{{ trip.destination }} img"/>
+                {% else %}
+                    <img src="{% static '/images/default-trip.jpg' %}"
+                         alt="{{ trip.destination }} img"/>
                 {% endif %}
 
 
                 <!-- trip destination -->
-                <h3 class="title">Cusco, Peru</h3>
+                <h3 class="title">{{ trip.destination }}</h3>
                 <!-- trip start date in format "D d M Y" -->
-                <p class="description">Fri 08 Nov 2024</p>
+                <p class="description">{{ trip.start_date|date:"D d M Y" }}</p>
                 <!-- trip details button -->
                 <a class="details-btn" href="#">Details</a>
             </div>
