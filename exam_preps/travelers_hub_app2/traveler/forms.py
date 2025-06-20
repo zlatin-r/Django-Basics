@@ -29,9 +29,12 @@ class CreateProfileForm(ProfileBaseForm):
         self.fields["country"].widget.attrs["placeholder"] = "Enter a country code like <BGR>..."
 
 
+class DetailsTravelerForm(ProfileBaseForm):
+    pass
+
+
 class EditProfileForm(ProfileBaseForm):
-    class Meta(ProfileBaseForm.Meta):
-        exclude = ()
+    pass
 
 
 class DeleteProfileForm(ProfileBaseForm):

@@ -41,5 +41,7 @@ class Trip(models.Model):
     traveler = models.ForeignKey(
         to=Traveler,
         on_delete=models.CASCADE,
-
     )
+
+    class Meta:
+        ordering = ["-start_date"]
