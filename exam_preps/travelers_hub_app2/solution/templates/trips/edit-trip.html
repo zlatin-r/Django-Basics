@@ -5,14 +5,13 @@
 
     <section id="edit">
         <div class="form">
-            <h1>Do you like to delete your Traveler's Profile?</h1>
-            <form id='delete' class="register-form" method="post" action="">
+            <h2>Edit Trip</h2>
+            <form class="edit-form" method="post" action="">
 
                 {{ form }}
                 {% csrf_token %}
 
-                <button type="submit">Yes</button>
-
+                <button type="submit">Edit</button>
             </form>
         </div>
     </section>
