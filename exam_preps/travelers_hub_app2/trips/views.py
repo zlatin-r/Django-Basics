@@ -18,12 +18,14 @@ class CreateTripView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['traveler'] = get_traveler_obj()
+        context["traveler"] = get_traveler_obj()
         return context
 
 
 class DetailsTripView(DetailView):
-    ...
+    model = Trip
+    template_name = "trips/details-trip.html"
+
 
 
 class EditTripView(UpdateView):
