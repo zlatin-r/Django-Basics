@@ -22,3 +22,16 @@ class CreateTripForm(TripBaseForm):
         self.fields["start_date"].widget = forms.DateInput(attrs={"type": "date"})
         self.fields["duration"].widget.attrs["placeholder"] = "*Duration in days is expected."
         self.fields['image_url'].widget.attrs['placeholder'] = "An optional image URL..."
+
+
+class EditTripForm(TripBaseForm):
+    pass
+
+
+class DeleteTripForm(TripBaseForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.fields.values():
+            field.required = False
+            field.widget.attrs['disabled'] = 'disabled'
