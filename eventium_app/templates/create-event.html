@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <section id="create">
+        <div class="form">
+            <h2>New Event</h2>
+            <form class="create-form" method="post">
+
+                {{ form }}
+                {% csrf_token %}
+
+                <button type="submit">Create Event</button>
+            </form>
+        </div>
+    </section>
+
+{% endblock %}
