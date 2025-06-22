@@ -22,5 +22,5 @@ class NicknameValidator:
 
     def __call__(self, value, *args, **kwargs):
         if not value.isalnum():
-            return ValidationError(self.__message)
-        return None
+            raise ValidationError(self.__message)
+
