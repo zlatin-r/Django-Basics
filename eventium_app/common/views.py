@@ -19,3 +19,4 @@ def all_events_view(request):
         "events": events
     }
     return render(request, template_name="events.html", context=context)
+
